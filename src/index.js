@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import store from "../src/store/index";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import store from "./store/index";
 //Provider wraps up your React application and makes it aware of the entire Redux's store.
 ReactDOM.render(
   <Provider store={store}>

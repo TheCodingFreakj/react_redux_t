@@ -2,9 +2,46 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  max-width: 15rem;
   background: yellowgreen;
   position: relative;
-  left: 40%;
   padding: 2%;
+}
+.flex-container {
+  background: yellow;
+  width: 100%;
+  margin: 2%;
+  text-align: center;
+}
+
+form {
+  background: violet;
+  max-height: 10rem;
+  /* height: 10rem; */
+}
+form {
+  background: violet;
+  max-height: 40rem;
+  /* max-height: 10rem; */
+  /* height: 10rem; */
+}
+label {
+  display: block;
+  /* padding: 2%; */
+  padding: 1%;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+input[type="text"],
+select,
+input#input_form {
+  width: 40%;
+  height: 2rem;
+}
+button {
+  background: yellow;
+  padding: 2%;
+  margin: 1%;
+  width: 10rem;
+  font-size: 1.2rem;
+  font-weight: 900;
 }

@@ -1,12 +1,17 @@
 // src/js/components/App.js
 import React from "react";
+import Header from "./components/header";
 import ConnectedList from "./components/list";
 import ConnectedForm from "./components/form";
 import FoodOrderForm from "./components/foodorder";
+import "./App.css";
 
 const App = () => (
   <>
     <div className="flex-box">
+      <div className="flex-container">
+        <Header />
+      </div>
       <div className="flex-container">
         <h2>ShowFoodItems</h2>
         <ConnectedList />

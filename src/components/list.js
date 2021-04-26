@@ -1,14 +1,21 @@
 import React from "react";
-import { connect } from "react-redux"; //connect the store to this components
-//fetch the articles and use them as props
-const ConnectedList = ({ fooditems }) => (
-  <ul>
-    {fooditems.map((el) => (
-      <li key={el.id}>{el.title}</li>
-    ))}
-  </ul>
-);
-const mapStateToProps = (state) => {
-  return { fooditems: state.fooditems };
+import { useDispatch, useSelector } from "react-redux";
+import { displayFooditems } from "../store/fooditems";
+const ConnectedList = () => {
+  const { fooditems } = useSelector((state) => state.fooditems);
+  return (
+    <React.Fragment>
+      <ul>{console.log(displayFooditems(fooditems))}</ul>
+    </React.Fragment>
+  );
 };
-export default connect(mapStateToProps)(ConnectedList);
+
+//We return a plain object from our action creators.
+
+// mapStateToProps = state => {
+//   return {
+//     someProp: state.someProp,
+//     anotherProp: state.anotherProp
+//   };
+// };
+export default ConnectedList;

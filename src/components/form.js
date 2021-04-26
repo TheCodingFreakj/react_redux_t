@@ -1,24 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
-import { addArticle } from "../actions/index";
-const ConnectedForm = (props) => {
+import { useDispatch } from "react-redux";
+import { addonFooditems } from "../store/fooditems";
+const ConnectedForm = () => {
   const [title, settitle] = React.useState("");
   const onChange = (e) => {
-    // // Extract the current value of the customer from state
-    // let titlefromstate = title;
-    // let updatedtitle = { ...titlefromstate };
-    // // Extract the value of the input element represented by `target`
-    // const titlefromuserip = e.target.value;
-    // // Update the customer object's first name
-    // //hjere we are updating the state tot;e
-    // updatedtitle = titlefromuserip;
-    // settitle({ title: updatedtitle });
     settitle(e.target.value);
   };
-
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addfooditem({ title });
+    dispatch(addonFooditems(title));
     settitle("");
   };
   return (
@@ -36,10 +27,28 @@ const ConnectedForm = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addfooditem: (fooditems) => dispatch(addArticle(fooditems)),
-  };
-};
-export default connect(null, mapDispatchToProps)(ConnectedForm);
+export default ConnectedForm;
 //https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object
+//If you wish to set tracking information for this branch you can do so with:
+//git branch --set-upstream-to=origin/<branch> development
+// Once you have connected your component in this way,
+// your component receives props.dispatch
+//You may use it to dispatch actions to the store.
+
+// function Counter({ count, dispatch }) {
+//   return (
+//     <div>
+//       <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+//       <span>{count}</span>
+//       <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+//       <button onClick={() => dispatch({ type: 'RESET' })}>reset</button>
+//     </div>
+//   )
+// }
+// Providing a mapDispatchToProps allows you to specify which actions your component might need to dispatch. I
+// Therefore, instead of calling props.dispatch(() => increment()), you may call props.increment() directly.
+
+//React Redux gives you two ways to let components dispatch actions:
+//By default, a connected component receives props.dispatch and can dispatch actions itself.
+//connect can accept an argument called mapDispatchToProps
+//lets you create functions that dispatch when called, and pass those functions as props to your componen

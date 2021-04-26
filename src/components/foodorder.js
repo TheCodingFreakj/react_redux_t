@@ -31,7 +31,7 @@ const FoodOrderForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  console.log(order);
+  // console.log(order);
   //get all the food from db
   const footitems = ["food1", "food2", "food3", "food4"];
   return (
